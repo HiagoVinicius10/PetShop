@@ -1,12 +1,17 @@
 import { useContext } from "react"
-import { CartContext } from "../../contexts/CartContext"
+import { CartContext, } from "../../contexts/CartContext"
 import { Link } from "react-router";
 import { IoIosArrowRoundBack } from "react-icons/io";
+
 
 
 export function CartShop (){
    const { cart, deleteProduct, addProductCart, total, buyProduct } = useContext(CartContext);
 
+
+   function buyProductOfPet(){
+    cart.filter((product) => buyProduct(product))
+   }
 
     return (
         <div>
@@ -74,7 +79,7 @@ export function CartShop (){
                 <p className="font-bold my-3 pl-2 italic"> Full: { total }</p>
 
                 <button 
-                onClick={buyProduct}
+                onClick={buyProductOfPet}
                 className="bg-green-600 px-5 h-9 rounded text-white font-medium cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"> 
                 Buy product 
                 </button>

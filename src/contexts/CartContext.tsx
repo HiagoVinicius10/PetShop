@@ -13,7 +13,7 @@ interface CartContextData{
     buyProduct: (product: CartProps) => void;
 }
 
-interface CartProps{
+export interface CartProps{
  id: string;
  title: string;
  description: string;
@@ -95,9 +95,9 @@ function CartProvide({ children }: CartProvideProps) {
             }  
     })
 
-    const removeAllItem = cart.filter((item) => item.id === product.id)
+    const removeAllItem = cart.filter((item) => item.id !== product.id)
     setCart(removeAllItem)
-    
+    totalResultCart(removeAllItem)
     }
 
     return(
